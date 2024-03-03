@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">TenMillions</string>
+    <string name="questionText">Question</string>
+    <string name="textAnswer1">answer_1</string>
+    <string name="textAnswer2">answer_2</string>
+    <string name="textAnswer3">answer_3</string>
+    <string name="textAnswer4">answer_4</string>
+    <string name="pointsAnswer1">points_1</string>
+    <string name="pointsAnswer2">points_2</string>
+    <string name="pointsAnswer3">points_3</string>
+    <string name="pointsAnswer4">points_4</string>
+    <string name="currentPoints">current_points</string>
 </resources>
