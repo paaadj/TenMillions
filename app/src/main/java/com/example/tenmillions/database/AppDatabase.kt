@@ -5,10 +5,13 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Question::class], version = 1, exportSchema = false)
+
+@Database(entities = [Question::class, User::class], version = 1, exportSchema = false
+)
 abstract class AppDatabase: RoomDatabase() {
 
     abstract fun questionDao(): QuestionDao
+    abstract fun userDao(): UserDao
 
     companion object {
         @Volatile
@@ -20,6 +23,7 @@ abstract class AppDatabase: RoomDatabase() {
                 if (instance == null) {
                     instance = Room.databaseBuilder(context.applicationContext,
                         AppDatabase::class.java, "db")
+                        .createFromAsset("database/TenMillions.db")
                         .build()
                     INSTANCE = instance
                 }

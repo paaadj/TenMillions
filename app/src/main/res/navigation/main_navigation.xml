@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/titleFragment">
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.tenmillions.screens.game.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/game_fragment" >
+        <action
+            android:id="@+id/action_gameFragment_to_scoreFragment"
+            app:destination="@id/scoreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="com.example.tenmillions.screens.title.TitleFragment"
+        android:label="TitleFragment"
+        tools:layout="@layout/title_fragment" >
+        <action
+            android:id="@+id/action_titleFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_recordsFragment"
+            app:destination="@id/recordsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scoreFragment"
+        android:name="com.example.tenmillions.screens.score.ScoreFragment"
+        android:label="score_fragment"
+        tools:layout="@layout/score_fragment" >
+        <argument
+            android:name="score"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_scoreFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recordsFragment"
+        android:name="com.example.tenmillions.screens.records.RecordsFragment"
+        android:label="records_fragment"
+        tools:layout="@layout/records_fragment" >
+        <action
+            android:id="@+id/action_recordsFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+    </fragment>
+</navigation>

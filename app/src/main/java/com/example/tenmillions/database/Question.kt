@@ -6,10 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "questions")
 data class Question(
-
-    @PrimaryKey(autoGenerate = true)
-    val uid: Int,
-
     @ColumnInfo(name = "question_text")
     val questionText: String,
     @ColumnInfo(name = "correct_answer")
@@ -17,4 +13,9 @@ data class Question(
     val answer1: String,
     val answer2: String,
     val answer3: String,
-)
+    @ColumnInfo(defaultValue = "ru")
+    val lang: String = "ru",
+) {
+    @PrimaryKey(autoGenerate = true)
+    var uid: Int = 0
+}

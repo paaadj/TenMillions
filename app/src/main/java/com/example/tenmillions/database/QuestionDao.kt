@@ -10,17 +10,23 @@ import androidx.room.Update
 interface QuestionDao {
 
     @Query("SELECT * FROM questions")
-    fun getAll(): List<Question>
+    suspend fun getAll(): List<Question>
 
     @Query("SELECT * FROM questions WHERE uid = :id")
-    fun getById(id: Int): Question
+    suspend fun getById(id: Int): Question?
+
+    @Query("SELECT * FROM questions WHERE lang=:lang ORDER BY RANDOM() LIMIT 10")
+    suspend fun getRandomItems(lang: String): MutableList<Question>
 
     @Insert
-    fun insert(question: Question)
+    suspend fun insert(question: Question)
 
     @Update
-    fun update(question: Question)
+    suspend fun update(question: Question)
 
     @Delete
-    fun delete(question: Question)
+    suspend fun delete(question: Question)
+
+    @Query("DELETE FROM questions")
+    suspend fun clear()
 }
